@@ -1,0 +1,13 @@
+Capacidad Reducida a la mitad a 25 elementos.
+Capacidad Reducida a la mitad a 12 elementos.
+Capacidad Reducida a la mitad a 6 elementos.
+Capacidad Doblada a 12 elementos.
+Capacidad Doblada a 24 elementos.
+Capacidad Doblada a 48 elementos.
+Capacidad Doblada a 96 elementos.
+Capacidad Reducida a la mitad a 48 elementos.
+Capacidad Reducida a la mitad a 24 elementos.
+Capacidad Reducida a la mitad a 12 elementos.
+Capacidad Reducida a la mitad a 6 elementos.
+Capacidad Reducida a la mitad a 3 elementos.
+Capacidad Reducida a la mitad a 1 elementos.

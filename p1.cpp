@@ -81,14 +81,14 @@ public:
     }
 };
 
-void productor(ColaCircular& cola, int id) {
+void productor(ColaCircular& cola) {
     for (int i = 0; i < 10; ++i) {
         cola.producir(i);
         this_thread::sleep_for(chrono::milliseconds(100));
     }
 }
 
-void consumidor(ColaCircular& cola, int id, int tiempo_max_espera) {
+void consumidor(ColaCircular& cola, int tiempo_max_espera) {
     auto inicio = chrono::steady_clock::now();
     while (true) {
         auto transcurrido = chrono::steady_clock::now() - inicio;
@@ -119,12 +119,12 @@ int main(int argc, char *argv[]) {
 
     vector<thread> hilos_productores;
     for (int i = 0; i < num_productores; ++i) {
-        hilos_productores.emplace_back(productor, ref(cola), i);
+        hilos_productores.emplace_back(productor, ref(cola));
     }
 
     vector<thread> hilos_consumidores;
     for (int i = 0; i < num_consumidores; ++i) {
-        hilos_consumidores.emplace_back(consumidor, ref(cola), i, tiempo_max_espera);
+        hilos_consumidores.emplace_back(consumidor, ref(cola), tiempo_max_espera);
     }
 
     for (size_t i = 0; i < hilos_productores.size(); ++i) {
@@ -135,6 +135,6 @@ int main(int argc, char *argv[]) {
         hilos_consumidores[i].join();
     }
 
-    cout << "Simulación completada. Archivo 'cola_log.txt' creado .\n";
+    cout << "Simulación completada. Archivo 'cola_log.txt' creado.\n";
     return EXIT_SUCCESS;
 }
